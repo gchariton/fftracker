@@ -1,18 +1,29 @@
-import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, TextInput, View } from 'react-native';
+import { Audio } from 'expo-av';
 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 function InputScan({ onCodeSubmit }) {
     const [inputCode, setInputCode] = useState('');
     const [isFocused, setIsFocused] = useState(false);
+    const [sound, setSound] = useState(null);
 
-    const handleOnFocus = () => {
+    async function playSound() {
+        const { sound } = await Audio.Sound.createAsync(
+            require('../sounds/soundAccept.wav')
+        );
+        setSound(sound);
+        await sound.playAsync();
+    }
+
+    function handleOnFocus() {
         setIsFocused(true);
-    };
+    }
 
     const handleInputSubmit = () => {
         onCodeSubmit(inputCode);
+        playSound();
         setInputCode('');
     };
 
@@ -30,6 +41,7 @@ function InputScan({ onCodeSubmit }) {
                 value={inputCode}
                 onChangeText={setInputCode}
                 onSubmitEditing={handleInputSubmit}
+                autoFocus={true}
             />
         </View>
     );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StyleSheet, Text } from 'react-native';
+import { FlatList, StyleSheet, ScrollView } from 'react-native';
 
 import Item from './Item';
 
