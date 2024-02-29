@@ -9,7 +9,7 @@ function InputScan({ onCodeSubmit }) {
     const [isFocused, setIsFocused] = useState(false);
     const [sound, setSound] = useState(null);
 
-    async function playSound() {
+    async function playSoundAccept() {
         const { sound } = await Audio.Sound.createAsync(
             require('../sounds/soundAccept.wav')
         );
@@ -21,9 +21,25 @@ function InputScan({ onCodeSubmit }) {
         setIsFocused(true);
     }
 
+    async function playSoundError() {
+        const { sound } = await Audio.Sound.createAsync(
+            require('../sounds/soundError.mp3')
+        );
+        setSound(sound);
+        await sound.playAsync();
+    }
+
+    function handleOnFocus() {
+        setIsFocused(true);
+    }
+
     const handleInputSubmit = () => {
+        // TODO: check if input code is valid
+        playSoundAccept();
+        // ELSE: handle invalid code and
+        // playSoundError();
+
         onCodeSubmit(inputCode);
-        playSound();
         setInputCode('');
     };
 
