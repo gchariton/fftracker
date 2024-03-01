@@ -1,32 +1,14 @@
 import React, { useState } from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
-import { Audio } from 'expo-av';
 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 function InputScan({ onCodeSubmit }) {
     const [inputCode, setInputCode] = useState('');
     const [isFocused, setIsFocused] = useState(false);
-    const [sound, setSound] = useState(null);
-
-    async function playSoundAccept() {
-        const { sound } = await Audio.Sound.createAsync(
-            require('../sounds/soundAccept.wav')
-        );
-        setSound(sound);
-        await sound.playAsync();
-    }
 
     function handleOnFocus() {
         setIsFocused(true);
-    }
-
-    async function playSoundError() {
-        const { sound } = await Audio.Sound.createAsync(
-            require('../sounds/soundError.mp3')
-        );
-        setSound(sound);
-        await sound.playAsync();
     }
 
     function handleOnFocus() {
@@ -34,11 +16,6 @@ function InputScan({ onCodeSubmit }) {
     }
 
     const handleInputSubmit = () => {
-        // TODO: check if input code is valid
-        playSoundAccept();
-        // ELSE: handle invalid code and
-        // playSoundError();
-
         onCodeSubmit(inputCode);
         setInputCode('');
     };
@@ -52,7 +29,6 @@ function InputScan({ onCodeSubmit }) {
             />
             <TextInput
                 style={styles.textinput}
-                placeholder={isFocused ? '' : 'Enter QR code...'}
                 onFocus={handleOnFocus}
                 value={inputCode}
                 onChangeText={setInputCode}
