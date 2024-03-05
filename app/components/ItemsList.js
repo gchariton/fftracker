@@ -11,7 +11,6 @@ function ItemsList({ submittedCode }) {
     useEffect(() => {
         if (submittedCode) {
             // Check if the submitted code already exists in itemsList
-            console.log(submittedCode);
             if (!itemsList.some((item) => item.itemCode === submittedCode)) {
                 // If it doesn't exist, add it to the list
                 const newItem = { id: Date.now(), itemCode: submittedCode };
@@ -28,6 +27,7 @@ function ItemsList({ submittedCode }) {
             itemsList.filter((item) => item.itemCode !== itemCodeToRemove)
         );
     };
+
     return (
         <View style={styles.container}>
             <View style={styles.counter}>
@@ -46,6 +46,9 @@ function ItemsList({ submittedCode }) {
                     ItemSeparatorComponent={() => (
                         <View style={styles.separator} />
                     )}
+                    ListEmptyComponent={
+                        <Text style={{ padding: 5 }}>Κενή λίστα...</Text>
+                    }
                 />
             </View>
         </View>
@@ -66,6 +69,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderRadius: 5,
         borderWidth: 1,
+        borderColor: 'gray',
         marginBottom: 10,
         width: '90%',
     },

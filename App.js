@@ -12,9 +12,9 @@ export default function App() {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#ddd',
+        backgroundColor: '#CCD0FF',
         alignItems: 'center',
         flex: 1,
-        paddingTop: StatusBar.currentHeight,
+        marginTop: StatusBar.currentHeight,
     },
 });

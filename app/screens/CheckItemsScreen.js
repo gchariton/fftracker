@@ -22,9 +22,9 @@ const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
         flex: 1,
+        marginTop: 20,
         width: '90%',
     },
-    text: {},
 });
 
 export default CheckItemsScreen;
