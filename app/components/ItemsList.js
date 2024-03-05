@@ -31,7 +31,12 @@ function ItemsList({ submittedCode }) {
     return (
         <View style={styles.container}>
             <View style={styles.counter}>
-                <Text>Συνολικά: {itemsList.length}</Text>
+                <Text>
+                    Συνολικά:{' '}
+                    <Text style={{ fontWeight: 'bold' }}>
+                        {itemsList.length}
+                    </Text>
+                </Text>
             </View>
             <View style={styles.listcontainer}>
                 <FlatList
@@ -68,7 +73,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: 'white',
         borderRadius: 5,
-        borderWidth: 1,
+        borderWidth: 2,
         borderColor: 'gray',
         marginBottom: 10,
         width: '90%',

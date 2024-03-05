@@ -1,11 +1,12 @@
 import { StatusBar, StyleSheet, View } from 'react-native';
 
 import CheckItemsScreen from './app/screens/CheckItemsScreen';
+import MainScreen from './app/screens/MainScreen';
 
 export default function App() {
     return (
         <View style={styles.container}>
-            <CheckItemsScreen />
+            <MainScreen />
         </View>
     );
 }
