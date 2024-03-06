@@ -2,9 +2,9 @@ import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-function ButtonSquare({ icon, title }) {
+function ButtonSquare({ icon, title, onPress }) {
     return (
-        <TouchableOpacity style={styles.container}>
+        <TouchableOpacity style={styles.container} onPress={onPress}>
             <MaterialCommunityIcons name={icon} size={40} style={styles.icon} />
             <Text style={styles.text}>{title}</Text>
         </TouchableOpacity>

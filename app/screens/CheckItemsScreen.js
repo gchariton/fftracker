@@ -21,9 +21,9 @@ function CheckItemsScreen({}) {
 const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
+        backgroundColor: '#CCD0FF',
         flex: 1,
-        marginTop: 20,
-        width: '90%',
+        width: '100%',
     },
 });
 

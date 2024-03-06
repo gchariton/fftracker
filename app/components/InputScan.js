@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         flexDirection: 'row',
         height: 50,
+        marginTop: 20,
         width: '90%',
     },
     icon: {

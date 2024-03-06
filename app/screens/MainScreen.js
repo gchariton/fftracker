@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import ButtonSquare from '../components/ButtonSquare';
 
-function MainScreen({}) {
+function MainScreen({ navigation }) {
     return (
         <View style={styles.container}>
             <ButtonSquare icon={'login-variant'} title={'Login'} />
@@ -25,7 +25,11 @@ function MainScreen({}) {
                 icon={'axis-z-rotate-counterclockwise'}
                 title={'Cycle Count'}
             />
-            <ButtonSquare icon={'check-circle-outline'} title={'Check'} />
+            <ButtonSquare
+                icon={'check-circle-outline'}
+                title={'Check'}
+                onPress={() => navigation.navigate('Check')}
+            />
             <ButtonSquare icon={'printer-pos'} title={'Print'} />
         </View>
     );
@@ -34,6 +38,7 @@ function MainScreen({}) {
 const styles = StyleSheet.create({
     container: {
         alignContent: 'center',
+        backgroundColor: '#CCD0FF',
         flexDirection: 'row',
         flexWrap: 'wrap',
         height: '100%',
@@ -42,4 +47,9 @@ const styles = StyleSheet.create({
     },
 });
 
+MainScreen.navigationOptions = {
+    headerStyle: {
+        backgroundColor: '#CCD0FF',
+    },
+};
 export default MainScreen;
