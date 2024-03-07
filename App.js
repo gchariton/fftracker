@@ -10,11 +10,17 @@ const StackNavigator = () => (
     <Stack.Navigator
         screenOptions={{
             headerStyle: {
-                backgroundColor: '#B4B7E0',
+                backgroundColor: 'brown',
             },
+            headerTintColor: 'white',
+            headerTitleAlign: 'center',
         }}
     >
-        <Stack.Screen name='Main' component={MainScreen} />
+        <Stack.Screen
+            name='Main'
+            component={MainScreen}
+            options={{ title: 'KIOUSSIS TRANSYS' }}
+        />
         <Stack.Screen name='Check' component={CheckItemsScreen} />
     </Stack.Navigator>
 );

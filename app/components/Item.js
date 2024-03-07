@@ -20,7 +20,6 @@ function Item({ itemCode, onRemoveItem }) {
             [
                 {
                     text: 'ΑΚΥΡΟ',
-                    onPress: () => console.log('Cancel Pressed'),
                 },
                 {
                     text: 'ΕΝΤΑΞΕΙ',
