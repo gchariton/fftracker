@@ -1,19 +1,21 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { StyleSheet, View } from 'react-native';
 import InputScan from '../components/InputScan';
 import ItemsList from '../components/ItemsList';
 
 function CheckItemsScreen({}) {
     const [submittedCode, setSubmittedCode] = useState('');
+    const [trigger, setTrigger] = useState(false);
 
     const handleCodeSubmit = (code) => {
         setSubmittedCode(code);
+        setTrigger(!trigger);
     };
 
     return (
         <View style={styles.container}>
             <InputScan onCodeSubmit={handleCodeSubmit} />
-            <ItemsList submittedCode={submittedCode} />
+            <ItemsList scannedCode={submittedCode} isTriggered={trigger} />
         </View>
     );
 }

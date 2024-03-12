@@ -4,23 +4,23 @@ import { playSound } from '../src/playSound';
 
 import Item from './Item';
 
-function ItemsList({ submittedCode }) {
+function ItemsList({ isTriggered, scannedCode }) {
     const [itemsList, setItemsList] = useState([]);
     const [sound, setSound] = useState(null);
 
     useEffect(() => {
-        if (submittedCode) {
+        if (scannedCode) {
             // Check if the submitted code already exists in itemsList
-            if (!itemsList.some((item) => item.itemCode === submittedCode)) {
+            if (!itemsList.some((item) => item.itemCode === scannedCode)) {
                 // If it doesn't exist, add it to the list
-                const newItem = { id: Date.now(), itemCode: submittedCode };
+                const newItem = { id: Date.now(), itemCode: scannedCode };
                 setItemsList((prevItems) => [...prevItems, newItem]);
                 playSound('soundAccept').then(setSound);
             } else {
                 playSound('soundError').then(setSound);
             }
         }
-    }, [submittedCode]);
+    }, [isTriggered, scannedCode]);
 
     const removeItem = (itemCodeToRemove) => {
         setItemsList(

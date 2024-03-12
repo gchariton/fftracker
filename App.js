@@ -1,29 +1,7 @@
 import { StatusBar, StyleSheet, View } from 'react-native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 
-import MainScreen from './app/screens/MainScreen';
-import CheckItemsScreen from './app/screens/CheckItemsScreen';
-
-const Stack = createNativeStackNavigator();
-const StackNavigator = () => (
-    <Stack.Navigator
-        screenOptions={{
-            headerStyle: {
-                backgroundColor: 'brown',
-            },
-            headerTintColor: 'white',
-            headerTitleAlign: 'center',
-        }}
-    >
-        <Stack.Screen
-            name='Main'
-            component={MainScreen}
-            options={{ title: 'KIOUSSIS TRANSYS' }}
-        />
-        <Stack.Screen name='Check' component={CheckItemsScreen} />
-    </Stack.Navigator>
-);
+import StackNavigator from './app/navigation/StackNavigator';
 export default function App() {
     return (
         <NavigationContainer>

@@ -11,10 +11,6 @@ function InputScan({ onCodeSubmit }) {
         setIsFocused(true);
     }
 
-    function handleOnFocus() {
-        setIsFocused(true);
-    }
-
     const handleInputSubmit = () => {
         onCodeSubmit(inputCode);
         setInputCode('');
