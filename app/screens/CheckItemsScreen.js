@@ -24,6 +24,8 @@ const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
         backgroundColor: '#CCD0FF',
+        borderTopWidth: 2,
+        borderTopColor: 'gray',
         flex: 1,
         width: '100%',
     },
