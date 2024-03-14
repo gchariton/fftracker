@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import React, { useState } from 'react';
+
 import InputScan from '../components/InputScan';
 import ItemsList from '../components/ItemsList';
+import Screen from './Screen';
 
 function CheckItemsScreen({}) {
     const [submittedCode, setSubmittedCode] = useState('');
@@ -13,22 +14,11 @@ function CheckItemsScreen({}) {
     };
 
     return (
-        <View style={styles.container}>
+        <Screen>
             <InputScan onCodeSubmit={handleCodeSubmit} />
             <ItemsList scannedCode={submittedCode} isTriggered={trigger} />
-        </View>
+        </Screen>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        alignItems: 'center',
-        backgroundColor: '#CCD0FF',
-        borderTopWidth: 2,
-        borderTopColor: 'gray',
-        flex: 1,
-        width: '100%',
-    },
-});
 
 export default CheckItemsScreen;

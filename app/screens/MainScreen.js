@@ -1,12 +1,17 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import ButtonSquare from '../components/ButtonSquare';
+import Screen from './Screen';
 
 function MainScreen({ navigation }) {
     return (
-        <View style={styles.container}>
-            <ButtonSquare icon={'login-variant'} title={'Login'} />
+        <Screen style={styles.container}>
+            <ButtonSquare
+                icon={'login-variant'}
+                title={'Login'}
+                onPress={() => navigation.navigate('Login')}
+            />
             <ButtonSquare
                 icon={'archive-arrow-down-outline'}
                 title={'Receiving'}
@@ -31,27 +36,15 @@ function MainScreen({ navigation }) {
                 onPress={() => navigation.navigate('Check')}
             />
             <ButtonSquare icon={'printer-pos'} title={'Print'} />
-        </View>
+        </Screen>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        alignContent: 'center',
-        backgroundColor: '#CCD0FF',
-        borderTopWidth: 2,
-        borderTopColor: 'gray',
         flexDirection: 'row',
         flexWrap: 'wrap',
-        height: '100%',
-        justifyContent: 'center',
-        width: '100%',
     },
 });
 
-MainScreen.navigationOptions = {
-    headerStyle: {
-        backgroundColor: '#CCD0FF',
-    },
-};
 export default MainScreen;
