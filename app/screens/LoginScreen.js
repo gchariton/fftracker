@@ -16,6 +16,8 @@ function LoginScreen(props) {
 
     const handleOnPress = () => {
         if (username === 'admin' && password === 'admin') {
+            setUsername('');
+            setPassword('');
             setErrorMsg('');
             props.navigation.navigate('Check');
         } else {
