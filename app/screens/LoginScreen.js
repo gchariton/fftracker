@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 
 import Screen from './Screen';
+import colors from '../config/colors';
 
 function LoginScreen(props) {
     const [username, setUsername] = useState('');
@@ -21,7 +22,7 @@ function LoginScreen(props) {
             setErrorMsg('');
             props.navigation.navigate('Check');
         } else {
-            setErrorMsg('Please check again your credentials.');
+            setErrorMsg('Please check your credentials...');
             setUsername('');
             setPassword('');
         }
@@ -43,7 +44,7 @@ function LoginScreen(props) {
                     onChangeText={setPassword}
                 />
                 <TouchableOpacity style={styles.button} onPress={handleOnPress}>
-                    <Text style={styles.text}>Submit</Text>
+                    <Text style={styles.text}>Login</Text>
                 </TouchableOpacity>
             </View>
             <View style={styles.errorblock}>
@@ -55,9 +56,9 @@ function LoginScreen(props) {
 
 const styles = StyleSheet.create({
     button: {
-        backgroundColor: 'tomato',
+        backgroundColor: colors.primary,
         borderWidth: 1,
-        borderColor: 'gray',
+        borderColor: colors.secondary,
         borderRadius: 10,
         margin: 10,
         padding: 10,
@@ -69,36 +70,28 @@ const styles = StyleSheet.create({
     errortext: {
         color: 'red',
         fontSize: 15,
-        fontWeight: 'bold',
         textAlign: 'left',
         padding: 20,
     },
     input: {
         fontSize: 20,
         borderWidth: 1,
-        borderColor: 'gray',
+        borderColor: colors.secondary,
         borderRadius: 10,
         margin: 10,
         padding: 10,
     },
     logincard: {
-        backgroundColor: 'white',
+        backgroundColor: colors.white,
         borderWidth: 2,
-        borderColor: 'gray',
+        borderColor: colors.secondary,
         borderRadius: 10,
         elevation: 5,
         paddind: 20,
-        shadowColor: 'black',
-        shadowOffset: {
-            height: 2,
-            width: 0,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 4,
         width: '90%',
     },
     text: {
-        color: 'white',
+        color: colors.black,
         fontSize: 20,
         fontWeight: 'bold',
         textAlign: 'center',

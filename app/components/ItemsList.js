@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 import { playSound } from '../src/playSound';
 
+import colors from '../config/colors';
 import Item from './Item';
 
 function ItemsList({ isTriggered, scannedCode }) {
@@ -62,25 +63,26 @@ function ItemsList({ isTriggered, scannedCode }) {
 
 const styles = StyleSheet.create({
     container: {
+        alignItems: 'center',
         flex: 1,
         width: '100%',
-        alignItems: 'center',
     },
     counter: {
         padding: 10,
     },
     listcontainer: {
-        flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: colors.white,
         borderRadius: 5,
         borderWidth: 2,
-        borderColor: 'gray',
+        borderColor: colors.secondary,
+        elevation: 5,
+        flex: 1,
         marginBottom: 10,
         width: '90%',
     },
     separator: {
         height: 1,
-        backgroundColor: 'black',
+        backgroundColor: colors.black,
     },
 });
 

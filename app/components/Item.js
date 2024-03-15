@@ -9,6 +9,7 @@ import {
 import { playSound } from '../src/playSound';
 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import colors from '../config/colors';
 
 function Item({ itemCode, onRemoveItem }) {
     const [sound, setSound] = useState(null);
@@ -44,14 +45,14 @@ function Item({ itemCode, onRemoveItem }) {
             </View>
             <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
                 <TouchableHighlight
-                    underlayColor='gray'
+                    underlayColor={colors.secondary}
                     onPress={handleOnPress}
                     style={styles.icon}
                 >
                     <MaterialCommunityIcons
                         name='trash-can-outline'
                         size={22}
-                        color={'brown'}
+                        color={colors.primary}
                     />
                 </TouchableHighlight>
             </View>

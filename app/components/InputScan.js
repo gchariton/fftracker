@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import colors from '../config/colors';
 
 function InputScan({ onCodeSubmit }) {
     const [inputCode, setInputCode] = useState('');
@@ -39,16 +40,18 @@ const styles = StyleSheet.create({
     container: {
         alignContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'white',
+        backgroundColor: colors.white,
         borderWidth: 2,
-        borderColor: 'gray',
+        borderColor: colors.secondary,
         borderRadius: 5,
         flexDirection: 'row',
+        elevation: 5,
         height: 50,
         marginTop: 20,
         width: '90%',
     },
     icon: {
+        color: colors.primary,
         padding: 5,
     },
     textinput: {

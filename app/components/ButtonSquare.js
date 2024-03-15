@@ -2,6 +2,9 @@ import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+
+import colors from '../config/colors';
+
 function ButtonSquare({ icon, title, onPress }) {
     return (
         <TouchableOpacity style={styles.container} onPress={onPress}>
@@ -14,22 +17,22 @@ function ButtonSquare({ icon, title, onPress }) {
 const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
-        backgroundColor: 'white',
-        borderColor: 'gray',
+        backgroundColor: colors.primary,
+        borderColor: colors.secondary,
         borderWidth: 2,
         borderRadius: 10,
-        height: 100,
+        elevation: 5,
+        height: '15%',
         justifyContent: 'center',
-        marginBottom: 10,
-        marginRight: 10,
-        width: 150,
+        margin: 5,
+        width: '40%',
     },
     icon: {
-        color: 'dodgerblue',
+        color: colors.white,
         padding: 3,
     },
     text: {
-        color: 'black',
+        color: colors.black,
         fontSize: 18,
         fontWeight: 'bold',
     },
